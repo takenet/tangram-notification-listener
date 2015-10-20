@@ -85,7 +85,7 @@ public class NotificationHandler extends AbstractHandler {
 			// Log configuration is defined in logback.xml file
 			logNotification(xmlRequest, xmlResponse);
 		} catch (JAXBException exRequest) { // request parsing error. BAD_REQUEST
-			logger.error(exRequest.getLocalizedMessage());
+			logger.error(exRequest.getCause().getMessage());
 			
 			// Creates the response.
 			NotificationResponse notificationResponse = new NotificationResponse();
@@ -102,7 +102,7 @@ public class NotificationHandler extends AbstractHandler {
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 				baseRequest.setHandled(true);
 			} catch (JAXBException exResponse) {
-				logger.error(exResponse.getLocalizedMessage());
+				logger.error(exRequest.getCause().getMessage());
 			}
 		} catch (TransformerException formatException) { // error logging the request/response
 			// Set the HTTP response content.
