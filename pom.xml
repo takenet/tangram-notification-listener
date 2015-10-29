@@ -16,9 +16,12 @@
 		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
 		<maven.jar.plugin.version>2.6</maven.jar.plugin.version>
 		<maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
+		<maven.resources.plugin.version>2.7</maven.resources.plugin.version>
 
 		<!-- Dependencies -->
 		<commons.lang3.version>3.4</commons.lang3.version>
+		<commons.conf.version>1.10</commons.conf.version>
+		<commons.beanutils.version>1.9.2</commons.beanutils.version>
 		<logback.version>1.1.3</logback.version>
 		<jetty.version>9.2.13.v20150730</jetty.version>
 	</properties>
@@ -30,7 +33,19 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons.lang3.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${commons.conf.version}</version>
+		</dependency>
 		
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons.beanutils.version}</version>
+		</dependency>
+
 		<!-- Jetty server -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
@@ -59,7 +74,7 @@
 				</configuration>
 			</plugin>
 
-			<!-- Dependency Plugin - copy libs  -->
+			<!-- Dependency Plugin - copy libs -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -76,6 +91,30 @@
 							<overWriteReleases>true</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
 							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven.resources.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/bin</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/non-package-resources</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
 						</configuration>
 					</execution>
 				</executions>
