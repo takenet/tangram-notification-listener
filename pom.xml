@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.takenet.tangram.notification.listener</groupId>
 	<artifactId>tangram-notification-listener</artifactId>
-	<version>0.1</version>
+	<version>0.2</version>
 	<name>tangram-notification-listener</name>
 	<url>http://www.takenet.com.br</url>
 
@@ -130,7 +130,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>br.com.takenet.tangram.notification.listener.NotificationListener</mainClass>
+							<mainClass>br.com.takenet.tangram.notification.listener.gui.MainApplication</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
