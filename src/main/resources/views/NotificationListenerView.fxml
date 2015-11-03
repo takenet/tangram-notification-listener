@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Server">
+              <items>
+                <MenuItem fx:id="menuItemServerStart" mnemonicParsing="false" text="Start" />
+                  <MenuItem fx:id="menuItemServerStop" mnemonicParsing="false" text="Stop" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <ToolBar BorderPane.alignment="CENTER">
+         <items>
+            <Label text="Server Status:">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="labelServerStatus" text="Stopped" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+         </items>
+      </ToolBar>
+   </bottom>
+   <center>
+      <TextArea fx:id="logTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Courier New" size="14.0" />
+         </font></TextArea>
+   </center>
+</BorderPane>
